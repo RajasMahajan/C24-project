@@ -27,9 +27,9 @@ function setup() {
 	//Create the Bodies Here.
 	ball=Bodies.circle(200,600,2,ops);
 	World.add(world,ball);
-	log1=Bodies.rectangle(600,650,200,20,{isStatic:false});  
-	log3=Bodies.rectangle(500,610,20,100,{isStatic:false});
-	log2=Bodies.rectangle(700,610,20,100,{isStatic:false});
+	log1=Bodies.rectangle(600,650,200,20,{isStatic:true});  
+	log3=Bodies.rectangle(500,610,20,100,{isStatic:true});
+	log2=Bodies.rectangle(700,610,20,100,{isStatic:true});
 	ground1=Bodies.rectangle(400,670,800,20,{isStatic:true});
 	World.add(world,ground1);
 	World.add(world,log1);
@@ -68,8 +68,8 @@ function draw() {
 
 function keyPressed(){
 	if(keyCode=== UP_ARROW){
-		var ops=ball.body.position;
-	Matter.Body.applyForce(ball.body,ops,{x:45,y:45});
+	//var ops=ball.body.position;
+	Matter.Body.applyForce(ball,ball.position,{x:0.3,y:-1});
 	}
 }
 
